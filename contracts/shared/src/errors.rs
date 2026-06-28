@@ -42,6 +42,9 @@ pub enum KoraError {
     InvalidFeeRate = 40,
     WithdrawalFailed = 41,
     TokenNotWhitelisted = 42,
+    WithdrawalRateLimitExceeded = 43,
+    WithdrawalCapTimelockNotElapsed = 44,
+    NoCapChangeProposed = 45,
 
     // Risk
     SMENotRegistered = 50,

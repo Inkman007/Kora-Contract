@@ -127,6 +127,14 @@ pub fn fee_withdrawn(env: &Env, token: &Address, amount: i128) {
     emit(env, symbol_short!("FEE_WTH"), (token.clone(), amount));
 }
 
+pub fn withdrawal_cap_proposed(env: &Env, admin: &Address, new_cap: i128) {
+    emit(env, symbol_short!("WD_PROP"), (admin.clone(), new_cap, env.ledger().timestamp()));
+}
+
+pub fn withdrawal_cap_updated(env: &Env, admin: &Address, old_cap: i128, new_cap: i128) {
+    emit(env, symbol_short!("WD_CAP"), (admin.clone(), old_cap, new_cap));
+}
+
 /// Emitted when the full token balance is drained via emergency_withdraw.
 pub fn emergency_withdrawn(env: &Env, by: &Address, token: &Address, amount: i128) {
     emit(
